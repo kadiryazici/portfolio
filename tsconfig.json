@@ -1,0 +1,19 @@
+{
+   "compilerOptions": {
+      "baseUrl": ".",
+      "strict": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "allowSyntheticDefaultImports": true,
+      "downlevelIteration": true,
+      "paths": {
+         "@store": ["./src/store/store.ts"],
+         "@components/*": ["./src/components/*"],
+         "@helpers": ["./src/helpers/index.ts"],
+         "/*": ["./*"]
+      }
+   },
+   "include": ["src/**/*"]
+}

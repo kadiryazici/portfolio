@@ -1,0 +1,13 @@
+@use "./vars.scss";
+
+@mixin forMobile {
+   @media screen and (max-width: vars.$mobileWidth) {
+      @content;
+   }
+}
+
+@mixin forMoreMobile {
+   @media screen and (max-width: vars.$moreMobileWidth) {
+      @content;
+   }
+}

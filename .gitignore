@@ -1,0 +1,8 @@
+node_modules
+dist
+yarn.lock
+package-lock.json
+.firebase
+.firebaserc
+firebase.json
+pnpm-lock.yaml
