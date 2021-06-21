@@ -26,6 +26,7 @@ import { store, updatePage } from '@store';
             <div
                role="button"
                class="_sticker"
+               :data-test="name"
                v-for="([name, comp], index) in store.tabs"
                :class="{ active: store.currentActivePage === index }"
                @click="updatePage(index)"

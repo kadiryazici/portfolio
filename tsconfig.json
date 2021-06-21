@@ -3,8 +3,10 @@
       "baseUrl": ".",
       "strict": true,
       "esModuleInterop": true,
-      "isolatedModules": true,
+      // "isolatedModules": true,
       "module": "ESNext",
+      "types": ["cypress", "@types/jest"],
+      "lib": ["ES6", "DOM"],
       "moduleResolution": "Node",
       "allowSyntheticDefaultImports": true,
       "downlevelIteration": true,
@@ -15,5 +17,5 @@
          "/*": ["./*"]
       }
    },
-   "include": ["src/**/*"]
+   "include": ["**/*"]
 }
