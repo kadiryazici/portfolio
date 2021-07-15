@@ -1,10 +1,33 @@
 <script lang="ts" setup>
 import { store, updatePage } from '@store';
+import { onMounted, watch } from 'vue';
+import anime from 'animejs';
+
+ref: notebook = null as HTMLDivElement | null;
+ref: notebookOldHeight = 0;
+watch(
+   () => store.currentActivePage,
+   () => {
+      notebookOldHeight = notebook!.offsetHeight;
+   },
+   { flush: 'pre' }
+);
+watch(
+   () => store.currentActivePage,
+   () => {
+      const currentHeight = notebook!.offsetHeight;
+   },
+   { flush: 'pre' }
+);
+
+onMounted(() => {
+   notebookOldHeight = notebook!.offsetHeight;
+});
 </script>
 
 <template>
    <div class="_notebook-wrapper">
-      <div class="_notebook">
+      <div ref="notebook" class="_notebook">
          <div class="_content">
             <transition
                :leaveActiveClass="
@@ -122,6 +145,7 @@ import { store, updatePage } from '@store';
             padding: 0 vars.$p * 2 + 5px 0 vars.$p * 2;
             background-color: vars.$blue;
             cursor: pointer;
+            overflow: hidden;
             font-weight: bold;
             font-size: vars.$tiny;
             clip-path: polygon(

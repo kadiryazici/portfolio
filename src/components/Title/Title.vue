@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue';
 
-const props =
-   defineProps<{
-      icon: string;
-   }>();
+const props = defineProps<{
+   icon: string;
+}>();
 </script>
 
 <template>
@@ -12,7 +11,7 @@ const props =
       <div class="_text">
          <slot />
       </div>
-      <img width="50" height="50" :src="props.icon" />
+      <img v-if="props.icon" width="50" height="50" :src="props.icon" />
    </div>
 </template>
 

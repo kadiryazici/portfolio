@@ -48,12 +48,12 @@ watchEffect(() => {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: 'Kalam', cursive;
    -webkit-tap-highlight-color: transparent;
 }
 
 body {
    overscroll-behavior: none;
+   font-family: 'Kalam', cursive;
 }
 
 #app {
@@ -126,6 +126,17 @@ p {
    text-decoration: underline;
    &:hover {
       color: darken(vars.$green, 1.5);
+   }
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+   border-radius: 5px !important;
+   box-shadow: vars.$dropShadowLeft;
+   &,
+   & * {
+      font-family: sans-serif !important;
+      font-size: 12px !important;
    }
 }
 </style>

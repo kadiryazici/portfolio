@@ -65,6 +65,8 @@ $imageClipPath: polygon(
    100% 0
 );
 ._about-me {
+   text-align: center;
+
    ._image {
       background-color: white;
       padding-left: vars.$p;
@@ -77,7 +79,6 @@ $imageClipPath: polygon(
       position: relative;
       max-width: 100%;
       width: 250px;
-
       ._img {
          max-width: 100%;
       }

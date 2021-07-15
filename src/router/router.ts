@@ -1,34 +1,29 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-const router = createRouter({
-   history: createWebHistory(),
-   routes: [
-      {
-         path: '/',
-         name: 'Home',
-         redirect: {
-            name: 'SpesificPage',
-            params: {
-               page: 0
-            }
-         }
-      },
-      {
-         path: '/:pathMatch(.*)*',
-         name: 'NotFound',
-         redirect: {
-            name: 'SpesificPage',
-            params: {
-               page: 0
-            }
-         }
-      },
-      {
-         path: '/:page(\\d+)',
+export const routes = <RouteRecordRaw[]>[
+   {
+      path: '/',
+      name: 'Home',
+      redirect: {
          name: 'SpesificPage',
-         component: () => import('/src/pages/Home.vue')
+         params: {
+            page: 0
+         }
       }
-   ]
-});
-
-export default router;
+   },
+   {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      redirect: {
+         name: 'SpesificPage',
+         params: {
+            page: 0
+         }
+      }
+   },
+   {
+      path: '/:page(\\d+)',
+      name: 'SpesificPage',
+      component: () => import('/src/pages/Home.vue')
+   }
+];

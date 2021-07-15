@@ -1,9 +1,23 @@
 import { UserConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 import path from 'path';
+import Vue from '@vitejs/plugin-vue';
+import Legacy from '@vitejs/plugin-legacy';
+import Markdown from 'vite-plugin-md';
+import Prism from 'markdown-it-prism';
 
 const config: UserConfig = {
-   plugins: [vue()],
+   plugins: [
+      Vue({
+         script: {
+            refSugar: true
+         },
+         include: [/\.vue$/, /\.md$/]
+      }),
+      Legacy(),
+      Markdown({
+         markdownItUses: [Prism]
+      })
+   ],
    css: {
       preprocessorOptions: {
          scss: {
@@ -23,7 +37,6 @@ const config: UserConfig = {
    },
    build: {
       polyfillDynamicImport: true,
-      minify: 'esbuild',
       assetsInlineLimit: 0
    }
 };

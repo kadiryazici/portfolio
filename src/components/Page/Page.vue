@@ -70,8 +70,6 @@ $leftChevronClipPath: polygon(
    background-position: 50px top;
    background-repeat: repeat-y;
 
-   text-align: center;
-
    ._page-nav {
       width: calc(100% - 50px);
       position: absolute;

@@ -1,34 +1,53 @@
 <script lang="ts" setup>
 import ContactIcon from '/src/static/icons/contact.png';
+import ImgEmail from '/src/static/contact/email.png';
+import ImgInstagram from '/src/static/contact/instagram.png';
+import ImgYoutube from '/src/static/contact/youtube.png';
+import ImgGithub from '/src/static/contact/github.png';
+
+interface Item {
+   name: string;
+   link: string;
+   displayLink: string;
+   img: string;
+}
+
+const Email: Item = {
+   displayLink: 'kadir_yazici@yahoo.com',
+   img: ImgEmail,
+   link: 'mailto:kadir_yazici@yahoo.com',
+   name: 'Mail'
+};
+const Instagram = {
+   displayLink: '/https.kadiryazici',
+   img: ImgInstagram,
+   link: 'instagram.com/https.kadiryazici',
+   name: 'Instagram'
+};
+const Youtube = {
+   displayLink: '/c/vierone',
+   img: ImgYoutube,
+   link: 'https://youtube.com/c/vierone',
+   name: 'Youtube'
+};
+const Github = {
+   displayLink: '/kadiryazici',
+   img: ImgGithub,
+   link: 'https://github.com/kadiryazici',
+   name: 'Github'
+};
+
+const items = [Email, Instagram, Youtube, Github] as Item[];
 </script>
 
 <template>
    <Page class="_contact">
       <Title :icon="ContactIcon">Contact</Title>
       <p>You can contact and find me via those platforms.</p>
-      <p>
-         <img src="/src/static/contact/email.png" class="_logo" />
-         Mail:
-         <a href="mailto:kadir_yazici@yahoo.com" class="_link"
-            >kadir_yazici@yahoo.com</a
-         >
-      </p>
-      <p>
-         <img src="/src/static/contact/instagram.png" class="_logo" />
-         İnstagram:
-         <a href="https://instagram.com/https.kadiryazici" class="_link"
-            >https.kadiryazici</a
-         >
-      </p>
-      <p>
-         <img src="/src/static/contact/youtube.png" class="_logo" />
-         Youtube:
-         <a href="https://youtube.com/c/vierone" class="_link">/c/vierone</a>
-      </p>
-      <p>
-         <img src="/src/static/contact/github.png" class="_logo" />
-         Github:
-         <a href="https://github.com/kadiryazici" class="_link">/kadiryazici</a>
+      <p v-for="{ displayLink, name, link, img } in items" :key="link">
+         <img :src="img" class="_logo" />
+         {{ name }}:
+         <a :href="link" class="_link">{{ displayLink }}</a>
       </p>
    </Page>
 </template>
