@@ -1,47 +1,32 @@
-<template>
-   <router-view> </router-view>
-</template>
-
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router';
-import { watchEffect } from 'vue';
-import { store, updatePage } from '@store';
+import Notebook from '@components/Notebook/Notebook.vue';
+import { useRouteStore } from './store/routeStore';
 
-const router = useRouter();
-const route = useRoute();
-
-const params = route.params;
-if (params.page) {
-   if (typeof params.page === 'string') {
-      const num = parseInt(params.page);
-      if (num < 0 || num > store.tabs.length - 1) {
-         router.push({
-            name: 'SpesificPage',
-            params: {
-               page: store.currentActivePage
-            }
-         });
-      } else {
-         updatePage(num);
-         router.push({
-            name: 'SpesificPage',
-            params: {
-               page: store.currentActivePage
-            }
-         });
-      }
-   }
-}
-
-watchEffect(() => {
-   router.push({
-      name: 'SpesificPage',
-      params: {
-         page: store.currentActivePage
-      }
-   });
-});
+const routeStore = useRouteStore();
 </script>
+
+<template>
+   <div class="_home">
+      <RouterView v-slot="{ Component }">
+         <Notebook>
+            <transition
+               :leaveActiveClass="
+                  routeStore.lastPage < routeStore.currentPage
+                     ? 'anim-flip-out'
+                     : 'anim-opacity-out'
+               "
+               :enterActiveClass="
+                  routeStore.lastPage > routeStore.currentPage
+                     ? 'anim-flip-in'
+                     : 'anim-opacity-in'
+               "
+            >
+               <component :is="Component" />
+            </transition>
+         </Notebook>
+      </RouterView>
+   </div>
+</template>
 
 <style lang="scss">
 * {
@@ -67,6 +52,24 @@ body {
    @include mix.forMoreMobile {
       padding: 0;
    }
+}
+
+._home {
+   @include mix.forMoreMobile {
+      margin: 0;
+   }
+
+   width: 100%;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: flex-start;
+   align-content: flex-start;
+   min-height: 100%;
+   max-width: 1000px;
+   margin: vars.$p auto;
+   box-shadow: vars.$shadow;
+   background: url('/src/static/background.jpg') repeat;
 }
 
 p {

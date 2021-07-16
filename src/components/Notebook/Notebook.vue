@@ -1,61 +1,33 @@
 <script lang="ts" setup>
-import { store, updatePage } from '@store';
-import { onMounted, watch } from 'vue';
-import anime from 'animejs';
+import { camelToSpaces } from '@helpers';
+import { computed } from 'vue';
+import { pageRoutes } from '/src/router/router';
 
-ref: notebook = null as HTMLDivElement | null;
-ref: notebookOldHeight = 0;
-watch(
-   () => store.currentActivePage,
-   () => {
-      notebookOldHeight = notebook!.offsetHeight;
-   },
-   { flush: 'pre' }
+ref: stickers = computed(() =>
+   pageRoutes.map((route) => ({
+      name: route.name
+   }))
 );
-watch(
-   () => store.currentActivePage,
-   () => {
-      const currentHeight = notebook!.offsetHeight;
-   },
-   { flush: 'pre' }
-);
-
-onMounted(() => {
-   notebookOldHeight = notebook!.offsetHeight;
-});
 </script>
 
 <template>
    <div class="_notebook-wrapper">
-      <div ref="notebook" class="_notebook">
+      <div class="_notebook">
          <div class="_content">
-            <transition
-               :leaveActiveClass="
-                  store.oldActivePage < store.currentActivePage
-                     ? 'anim-flip-out'
-                     : 'anim-opacity-out'
-               "
-               :enterActiveClass="
-                  store.oldActivePage > store.currentActivePage
-                     ? 'anim-flip-in'
-                     : 'anim-opacity-in'
-               "
-            >
-               <component :is="store.tabs[store.currentActivePage][1]" />
-            </transition>
+            <slot />
          </div>
 
          <div class="_stickers">
-            <div
-               role="button"
+            <RouterLink
+               v-for="{ name } in stickers"
+               :key="name"
+               :to="{ name }"
+               v-text="camelToSpaces(name)"
+               exact-active-class="active"
+               role="link"
                class="_sticker"
                :data-test="name"
-               v-for="([name, comp], index) in store.tabs"
-               :class="{ active: store.currentActivePage === index }"
-               @click="updatePage(index)"
-            >
-               {{ name }}
-            </div>
+            />
          </div>
       </div>
    </div>
@@ -148,6 +120,8 @@ onMounted(() => {
             overflow: hidden;
             font-weight: bold;
             font-size: vars.$tiny;
+            text-decoration: none;
+            color: vars.$dark;
             clip-path: polygon(
                100% 0%,
                calc(100% - 10px) 50%,

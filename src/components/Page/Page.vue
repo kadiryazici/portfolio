@@ -1,39 +1,65 @@
 <script lang="ts" setup>
-import { useGetters, store, nextPage, previousPage } from '@store';
-import { toRefs } from 'vue';
+import { camelToSpaces } from '@helpers';
+import { computed, toRefs } from 'vue';
+import { useRoute } from 'vue-router';
+import { pageRoutes } from '/src/router/router';
 
-const { canFlipBefore, canFlipNext } = toRefs(useGetters());
+const route = useRoute();
+const pages = pageRoutes.map((route) => ({
+   page: route.meta.page,
+   name: route.name
+}));
+
+ref: nextPage = computed(() => {
+   const currentPage = route.meta.page as unknown as number;
+   if (currentPage < pages.length) {
+      return {
+         name: pages.find((page) => page.page === currentPage + 1)!.name
+      };
+   } else {
+      return null;
+   }
+});
+
+ref: previousPage = computed(() => {
+   const currentPage = route.meta.page as unknown as number;
+   if (currentPage > 1) {
+      return {
+         name: pages.find((page) => page.page === currentPage - 1)!.name
+      };
+   } else {
+      return null;
+   }
+});
 </script>
 
 <template>
    <div class="_page">
       <div class="_page-nav">
-         <span
-            @click="previousPage()"
+         <RouterLink
             class="wrapper"
             role="button"
-            v-if="canFlipBefore"
+            v-if="previousPage"
+            :to="{ name: previousPage.name }"
          >
             <button class="button-prev"></button>
-            {{ store.tabs[store.currentActivePage - 1][0] }}
-         </span>
+            {{ previousPage.name }}
+         </RouterLink>
 
          <span class="_seperator"></span>
 
-         <span
-            @click="nextPage()"
+         <RouterLink
             class="wrapper"
             role="button"
-            v-if="canFlipNext"
+            :to="{ name: nextPage.name }"
+            v-if="nextPage"
          >
-            {{ store.tabs[store.currentActivePage + 1][0] }}
+            {{ nextPage.name }}
             <button class="button-next"></button>
-         </span>
+         </RouterLink>
       </div>
       <slot />
-      <div class="_page-count">
-         {{ store.currentActivePage + 1 }} / {{ store.tabs.length }}
-      </div>
+      <div class="_page-count">{{ route.meta.page }} / {{ pages.length }}</div>
       <div class="_light"></div>
    </div>
 </template>
@@ -95,6 +121,8 @@ $leftChevronClipPath: polygon(
          display: inline-flex;
          align-items: center;
          cursor: pointer;
+         text-decoration: none;
+         color: vars.$blue;
          .button-prev,
          .button-next {
             width: 15px;

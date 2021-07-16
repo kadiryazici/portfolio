@@ -11,17 +11,16 @@
    "dependencies": {
       "@vue/runtime-core": "^3.1.3",
       "@vueuse/head": "^0.6.0",
-      "animejs": "^3.2.1",
       "markdown-it-prism": "^2.1.8",
+      "pinia": "^2.0.0-beta.5",
       "typescript": "^4.1.3",
       "vite-plugin-md": "^0.8.0",
       "vite-ssr": "^0.10.6",
-      "vue": "^3.1.3",
+      "vue": "3.1.4",
       "vue-router": "next"
    },
    "devDependencies": {
       "@cypress/vite-dev-server": "^2.0.1",
-      "@types/animejs": "^3.1.4",
       "@types/jest": "^26.0.23",
       "@types/node": "^15.6.0",
       "@vitejs/plugin-legacy": "^1.4.3",
@@ -32,6 +31,6 @@
       "cypress": "^7.5.0",
       "sass": "latest",
       "start-server-and-test": "^1.12.5",
-      "vite": "latest"
+      "vite": "^2.4.2"
    }
 }

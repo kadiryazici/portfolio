@@ -11,7 +11,7 @@ describe('Main testing', () => {
    });
 
    it('should visit Experience page and check title', () => {
-      cy.get('div[role=button][data-test=Experience]')
+      cy.get('._sticker[role=link][data-test=Experience]')
          .should('exist')
          .click()
          .get('._title')
@@ -19,7 +19,7 @@ describe('Main testing', () => {
    });
 
    it('should visit Education page and check title', () => {
-      cy.get('div[role=button][data-test=Education]')
+      cy.get('._sticker[role=link][data-test=Education]')
          .should('exist')
          .click()
          .get('._title')
@@ -27,7 +27,7 @@ describe('Main testing', () => {
    });
 
    it('should visit Knowledge page and check title', () => {
-      cy.get('div[role=button][data-test=Knowledge]')
+      cy.get('._sticker[role=link][data-test=Knowledge]')
          .should('exist')
          .click()
          .get('._title')
@@ -35,7 +35,7 @@ describe('Main testing', () => {
    });
 
    it('should visit Language Skills page and check title', () => {
-      cy.get('div[role=button][data-test="Language Skills"]')
+      cy.get('._sticker[role=link][data-test="LanguageSkills"]')
          .should('exist')
          .click()
          .get('._title')
@@ -43,7 +43,7 @@ describe('Main testing', () => {
    });
 
    it('should visit contact page and check title', () => {
-      cy.get('div[role=button][data-test=Contact]')
+      cy.get('._sticker[role=link][data-test=Contact]')
          .should('exist')
          .click()
          .get('._title')

@@ -44,10 +44,12 @@ const items = [Email, Instagram, Youtube, Github] as Item[];
    <Page class="_contact">
       <Title :icon="ContactIcon">Contact</Title>
       <p>You can contact and find me via those platforms.</p>
-      <p v-for="{ displayLink, name, link, img } in items" :key="link">
-         <img :src="img" class="_logo" />
-         {{ name }}:
-         <a :href="link" class="_link">{{ displayLink }}</a>
+      <p v-for="item in items" :key="item.link">
+         <img :src="item.img" class="_logo" />
+         <span>{{ item.name }}: </span>
+         <a target="_blank" :href="item.link" class="_link">{{
+            item.displayLink
+         }}</a>
       </p>
    </Page>
 </template>
