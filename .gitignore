@@ -6,3 +6,4 @@ package-lock.json
 .firebaserc
 firebase.json
 pnpm-lock.yaml
+_app

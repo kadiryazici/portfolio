@@ -4,6 +4,7 @@ import Vue from '@vitejs/plugin-vue';
 import Legacy from '@vitejs/plugin-legacy';
 import Markdown from 'vite-plugin-md';
 import Prism from 'markdown-it-prism';
+import ViteSSR from 'vite-ssr/plugin';
 
 const config: UserConfig = {
    plugins: [
@@ -13,10 +14,11 @@ const config: UserConfig = {
          },
          include: [/\.vue$/, /\.md$/]
       }),
-      Legacy(),
+      // Legacy(),
       Markdown({
          markdownItUses: [Prism]
-      })
+      }),
+      ViteSSR()
    ],
    css: {
       preprocessorOptions: {
@@ -37,7 +39,8 @@ const config: UserConfig = {
    },
    build: {
       polyfillDynamicImport: true,
-      assetsInlineLimit: 0
+      assetsInlineLimit: 0,
+      outDir: './_app/dist'
    }
 };
 

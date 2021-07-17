@@ -1,32 +1,47 @@
-import { createApp } from 'vue';
-import { createRouter, createWebHistory } from 'vue-router';
 import { createPinia } from 'pinia';
+import { createHead } from '@vueuse/head';
+import devalue from '@nuxt/devalue';
 
 import App from './App.vue';
 import Title from '/src/components/Title/Title.vue';
 import Page from '/src/components/Page/Page.vue';
 
 import { routes } from '/src/router/router';
-import { useRouteStore } from './store/routeStore';
+import { useRouteStore } from '/src/store/routeStore';
 
-const router = createRouter({
-   history: createWebHistory(),
-   routes
-});
+import { viteSSR } from 'vite-ssr/vue';
 
-const app = createApp(App);
+export default viteSSR(
+   App,
+   {
+      routes,
+      transformState(state) {
+         return import.meta.env.SSR ? devalue(state) : state;
+      }
+   },
+   ({ app, router, initialState, isClient }) => {
+      const head = createHead();
+      const pinia = createPinia();
 
-app.use(router)
-   .use(createPinia())
-   .component('Title', Title)
-   .component('Page', Page);
+      app.use(router)
+         .use(pinia)
+         .component('Title', Title)
+         .component('Page', Page);
 
-router.isReady().then(() => {
-   app.mount('#app');
-});
+      if (isClient) {
+         pinia.state.value = initialState.pinia;
+      } else {
+         initialState.pinia = pinia.state.value;
+      }
 
-router.beforeResolve((to, from) => {
-   const routeStore = useRouteStore();
-   routeStore.lastPage = (from.meta.page as number) || 0;
-   routeStore.currentPage = to.meta.page as number;
-});
+      router.beforeResolve((to, from) => {
+         const routeStore = useRouteStore(pinia);
+         routeStore.lastPage = (from.meta.page as number) || 0;
+         routeStore.currentPage = to.meta.page as number;
+      });
+
+      return {
+         head
+      };
+   }
+);

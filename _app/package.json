@@ -1,0 +1,18 @@
+{
+   "name": "kyzc",
+   "version": "0.0.1",
+   "description": "vite2 starter app",
+   "scripts": {
+      "start": "node ./server/main.js"
+   },
+   "dependencies": {
+      "@nuxt/devalue": "^2.0.0",
+      "@vue/server-renderer": "^3.1.4",
+      "@vueuse/head": "^0.6.0",
+      "pinia": "^2.0.0-beta.5",
+      "vue": "3.1.4",
+      "vue-router": "next",
+      "node-fetch": "2.6.1",
+      "express": "latest"
+   }
+}

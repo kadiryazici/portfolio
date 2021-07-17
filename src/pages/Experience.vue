@@ -33,7 +33,12 @@ const items = [Atlantic, HIK];
             <img :src="Dot" class="_dot" /> {{ item.name }}
          </div>
          <p class="_detail">
-            <a class="_link" :href="`https://${item.website}`">- Website</a>
+            <a
+               target="_blank"
+               class="_link"
+               :href="`https://${item.website}`"
+               v-text="'- Website'"
+            />
             <br />
             <span>- {{ item.info }}</span>
          </p>
