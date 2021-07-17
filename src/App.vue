@@ -1,12 +1,22 @@
 <script lang="ts" setup>
 import Notebook from '@components/Notebook/Notebook.vue';
-import { useRouteStore } from './store/routeStore';
+import { camelToSpaces } from '@helpers';
+import { Head } from '@vueuse/head';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { useRouteStore } from '/src/store/routeStore';
+
+const route = useRoute();
+const routeName = computed(() => camelToSpaces(route.name as string));
 
 const routeStore = useRouteStore();
 </script>
 
 <template>
    <div class="_home">
+      <Head>
+         <title>{{ routeName }} - Kadir Yazıcı Portfolio</title>
+      </Head>
       <RouterView v-slot="{ Component }">
          <Notebook>
             <transition

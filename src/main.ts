@@ -25,6 +25,7 @@ export default viteSSR(
 
       app.use(router)
          .use(pinia)
+         .use(head)
          .component('Title', Title)
          .component('Page', Page);
 

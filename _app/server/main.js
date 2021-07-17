@@ -27,7 +27,9 @@ const server = express();
 for (const asset of assets || []) {
    server.use(
       '/' + asset,
-      express.static(path.join(__dirname, `${dist}/client/` + asset))
+      express.static(path.join(__dirname, `${dist}/client/` + asset), {
+         maxAge: '24h'
+      })
    );
 }
 

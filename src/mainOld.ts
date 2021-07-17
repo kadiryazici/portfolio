@@ -8,6 +8,7 @@ import Page from '/src/components/Page/Page.vue';
 
 import { routes } from '/src/router/router';
 import { useRouteStore } from './store/routeStore';
+import { defineComponent } from '@vue/runtime-core';
 
 const router = createRouter({
    history: createWebHistory(),

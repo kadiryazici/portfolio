@@ -5,6 +5,7 @@
    "scripts": {
       "dev": "vite-ssr --open",
       "build": "vite-ssr build",
+      "build:spa": "vite build",
       "test:e2e": "start-server-and-test dev http-get://localhost:3000 cypress",
       "cypress": "cypress run --browser edge --no-exit",
       "push:heroku": "cd ./_app && git add . && git commit -m \"qeqwadas\" && git push heroku master"

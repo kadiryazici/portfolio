@@ -22,12 +22,12 @@ ref: stickers = computed(() =>
                v-for="{ name } in stickers"
                :key="name"
                :to="{ name }"
-               v-text="camelToSpaces(name)"
                exact-active-class="active"
                role="link"
                class="_sticker"
                :data-test="name"
-            />
+               >{{ camelToSpaces(name) }}</RouterLink
+            >
          </div>
       </div>
    </div>

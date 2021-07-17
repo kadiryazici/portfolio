@@ -21,7 +21,7 @@ const Email: Item = {
 const Instagram = {
    displayLink: '/https.kadiryazici',
    img: ImgInstagram,
-   link: 'instagram.com/https.kadiryazici',
+   link: 'https://instagram.com/https.kadiryazici',
    name: 'Instagram'
 };
 const Youtube = {
