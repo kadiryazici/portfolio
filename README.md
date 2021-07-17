@@ -4,7 +4,7 @@
 
 # Online View
 
-[My Portfolio](https://kadyazici.web.app)
+[My Portfolio](https://kyzc.herokuapp.com)
 
 <br>
 
