@@ -1,15 +1,27 @@
 <script lang="ts" setup>
 import Notebook from '@components/Notebook/Notebook.vue';
 import { camelToSpaces } from '@helpers';
-import { Head } from '@vueuse/head';
+import { Head, useHead } from '@vueuse/head';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouteStore } from '/src/store/routeStore';
 
+import KYZCLogo from '/src/static/kadiryazici.png';
+
 const route = useRoute();
+const routeStore = useRouteStore();
+
 const routeName = computed(() => camelToSpaces(route.name as string));
 
-const routeStore = useRouteStore();
+useHead({
+   meta: [
+      {
+         name: 'description',
+         content:
+            'This website is about me, you can find informations about me and technologies I use or maybe you may hire me.'
+      }
+   ]
+});
 </script>
 
 <template>
@@ -19,22 +31,20 @@ const routeStore = useRouteStore();
       </Head>
       <RouterView v-slot="{ Component }">
          <Notebook>
-            <Suspense>
-               <transition
-                  :leaveActiveClass="
-                     routeStore.lastPage < routeStore.currentPage
-                        ? 'anim-flip-out'
-                        : 'anim-opacity-out'
-                  "
-                  :enterActiveClass="
-                     routeStore.lastPage > routeStore.currentPage
-                        ? 'anim-flip-in'
-                        : 'anim-opacity-in'
-                  "
-               >
-                  <component :is="Component" />
-               </transition>
-            </Suspense>
+            <transition
+               :leaveActiveClass="
+                  routeStore.lastPage < routeStore.currentPage
+                     ? 'anim-flip-out'
+                     : 'anim-opacity-out'
+               "
+               :enterActiveClass="
+                  routeStore.lastPage > routeStore.currentPage
+                     ? 'anim-flip-in'
+                     : 'anim-opacity-in'
+               "
+            >
+               <component :is="Component" />
+            </transition>
          </Notebook>
       </RouterView>
    </div>
@@ -50,7 +60,7 @@ const routeStore = useRouteStore();
 
 body {
    overscroll-behavior: none;
-   font-family: 'Kalam', cursive;
+   font-family: 'Kalam', cursive !important;
 }
 
 #app {
@@ -133,6 +143,9 @@ p {
    100% {
       opacity: var(--to);
    }
+}
+img {
+   display: inline !important;
 }
 
 ._link,

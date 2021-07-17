@@ -23,7 +23,8 @@
       "vite-plugin-md": "^0.8.0",
       "vite-ssr": "^0.10.6",
       "vue": "3.1.4",
-      "vue-router": "next"
+      "vue-router": "next",
+      "windicss": "^3.1.5"
    },
    "devDependencies": {
       "@cypress/vite-dev-server": "^2.0.1",
@@ -40,6 +41,7 @@
       "cypress": "^7.5.0",
       "sass": "latest",
       "start-server-and-test": "^1.12.5",
-      "vite": "^2.4.2"
+      "vite": "^2.4.2",
+      "vite-plugin-windicss": "^1.2.4"
    }
 }

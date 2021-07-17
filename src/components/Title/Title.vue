@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+import { camelToSpaces } from '@helpers';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+ref: titleName = computed(() => camelToSpaces(route.name as string));
+
 const props = defineProps<{
    icon: string;
 }>();
@@ -7,7 +14,7 @@ const props = defineProps<{
 <template>
    <div class="_title">
       <div class="_text">
-         <slot />
+         {{ titleName }}
       </div>
       <img v-if="props.icon" width="50" height="50" :src="props.icon" />
    </div>

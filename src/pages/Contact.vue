@@ -42,9 +42,10 @@ const items = [Email, Instagram, Youtube, Github] as Item[];
 
 <template>
    <Page class="_contact">
-      <Title :icon="ContactIcon">Contact</Title>
-      <p>You can contact and find me via those platforms.</p>
-      <p v-for="item in items" :key="item.link">
+      <Title :icon="ContactIcon" />
+
+      <p class="pb-3">You can contact and find me via those platforms.</p>
+      <p class="pb-3" v-for="item in items" :key="item.link">
          <img :src="item.img" class="_logo" />
          <span>{{ item.name }}: </span>
          <a target="_blank" :href="item.link" class="_link">{{
@@ -56,11 +57,10 @@ const items = [Email, Instagram, Youtube, Github] as Item[];
 
 <style lang="scss" scoped>
 ._contact {
-   opacity: 1;
    ._logo {
       width: 40px;
       height: 40px;
-      vertical-align: middle;
+      @apply align-middle mr-2;
    }
 }
 </style>

@@ -1,7 +1,7 @@
 <script lang="tsx">
 import Page from '@components/Page/Page.vue';
 import Title from '@components/Title/Title.vue';
-import { defineComponent, Suspense } from 'vue';
+import { defineComponent } from 'vue';
 
 import KnowledgeIcon from '/src/static/icons/knowledge.png';
 import HTMLIcon from '/src/static/technologies/html.png';
@@ -27,18 +27,15 @@ function HandledKnowledgeDetails() {
    return KnowledgeData.map((k) => {
       const splittedData = k.split(' ');
       const handledStrings = splittedData.map((str, index) => {
-         if (str.match('img:'))
-            return (
-               <img
-                  src={str.replace('img:', '')}
-                  class="_logo"
-                  alt="coding technology logo"
-               />
-            );
+         if (str.match('img:')) {
+            const replaced = str.replace('img:', '');
+            const alt = 'coding technology logo';
+            return <img src={replaced} class="_logo" alt={alt} />;
+         }
 
          return index > 0 ? ` ${str}` : `${str} `;
       });
-      return <p>{handledStrings}</p>;
+      return <p class="pb-3">{handledStrings}</p>;
    });
 }
 
@@ -46,7 +43,7 @@ export default defineComponent({
    setup() {
       return () => (
          <Page class="_knowledge">
-            <Title icon={KnowledgeIcon}>Knowledge</Title>
+            <Title icon={KnowledgeIcon} />
             {HandledKnowledgeDetails()}
          </Page>
       );

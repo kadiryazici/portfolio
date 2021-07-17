@@ -6,7 +6,7 @@ import PageMarkdown from '/src/markdowns/AboutMe.md';
 
 <template>
    <Page class="_about-me">
-      <Title :icon="AboutIcon">About Me</Title>
+      <Title :icon="AboutIcon" />
       <PageMarkdown />
       <div class="_image">
          <img class="_img" :src="KadirPhoto" />

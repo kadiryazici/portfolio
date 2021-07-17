@@ -4,21 +4,20 @@ import Vue from '@vitejs/plugin-vue';
 import Markdown from 'vite-plugin-md';
 import ViteSSR from 'vite-ssr/plugin';
 import VueJSX from '@vitejs/plugin-vue-jsx';
+import WindiCSS from 'vite-plugin-windicss';
 
 const config: UserConfig = {
    plugins: [
+      VueJSX(),
+      Markdown(),
+      ViteSSR(),
+      WindiCSS(),
       Vue({
          script: {
             refSugar: true
          },
          include: [/\.vue$/, /\.md$/]
-      }),
-      VueJSX(),
-      // Legacy(),
-      Markdown({
-         markdownItUses: []
-      }),
-      ViteSSR()
+      })
    ],
    css: {
       preprocessorOptions: {

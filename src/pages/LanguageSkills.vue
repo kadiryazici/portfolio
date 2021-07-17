@@ -1,40 +1,33 @@
 <script lang="ts" setup>
 import LanguageIcon from '/src/static/icons/language.png';
+
+const pageData = [
+   [
+      'English',
+      'I speak english at B2 level. I can talk to people and describe my willings and understand theirs. I can read documentation of libraries without any issue. I can watch English code teaching videos.'
+   ],
+   [
+      'Turkish', // phych prettier
+      'Turkish is my main language.'
+   ]
+];
 </script>
 
 <template>
    <Page class="_skills">
-      <Title :icon="LanguageIcon">Language Skills</Title>
-      <div role="heading" class="_header">
-         <img src="/src/static/icons/dot.png" class="_dot" /> English
-      </div>
-      <p>
-         I speak english at B2 level. I can talk to people and describe my
-         willings and understand theirs. I can read documentation of libraries
-         without any issue. I can watch English code teaching videos.
-      </p>
+      <Title :icon="LanguageIcon" />
 
-      <div role="heading" class="_header">
-         <img src="/src/static/icons/dot.png" class="_dot" /> Turkish
-      </div>
-      <p>Turkish is my main language.</p>
+      <template :key="name" v-for="[name, detail] in pageData">
+         <Heading>{{ name }}</Heading>
+         <p class="_detail">{{ detail }}</p>
+      </template>
    </Page>
 </template>
 
 <style lang="scss" scoped>
 ._skills {
-   opacity: 1;
-   text-align: left;
-   ._dot {
-      width: 15px;
-      height: 15px;
-      vertical-align: middle;
-   }
-
-   ._header {
-      font-size: vars.$small;
-      font-weight: bold;
-      margin-top: vars.$p;
+   ._detail {
+      margin-bottom: vars.$p * 3;
    }
 }
 </style>

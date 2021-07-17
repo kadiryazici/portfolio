@@ -5,6 +5,8 @@ import devalue from '@nuxt/devalue';
 import App from './App.vue';
 import Title from '/src/components/Title/Title.vue';
 import Page from '/src/components/Page/Page.vue';
+import Heading from '/src/components/Heading/Heading.vue';
+import 'virtual:windi.css';
 
 import { routes } from '/src/router/router';
 import { useRouteStore } from '/src/store/routeStore';
@@ -27,7 +29,8 @@ export default viteSSR(
          .use(pinia)
          .use(head)
          .component('Title', Title)
-         .component('Page', Page);
+         .component('Page', Page)
+         .component('Heading', Heading);
 
       if (isClient) {
          pinia.state.value = initialState.pinia;

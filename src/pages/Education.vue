@@ -16,12 +16,11 @@ const items = [
 
 <template>
    <Page class="_education">
-      <Title :icon="EducationIcon">Education</Title>
+      <Title :icon="EducationIcon" />
 
       <template v-for="[name, detail] in items">
          <div role="heading" class="_header">
-            <img :src="Dot" class="_dot" />
-            <span>{{ name }}</span>
+            <Heading>{{ name }}</Heading>
          </div>
          <p class="_detail">- {{ detail }}</p>
       </template>
@@ -31,18 +30,6 @@ const items = [
 <style lang="scss" scoped>
 ._education {
    text-align: left;
-   ._dot {
-      width: 15px;
-      height: 15px;
-      vertical-align: middle;
-   }
-
-   ._header {
-      font-size: vars.$small;
-      font-weight: bold;
-      margin-top: vars.$p;
-   }
-
    ._detail {
       margin: 0;
       margin-bottom: vars.$p * 3;

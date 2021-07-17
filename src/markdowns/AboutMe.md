@@ -5,6 +5,7 @@ learn HTML when I was 13 years old, I would steal source code of
 websites I like and edit them. I am a TypeScript enjoyer and JavaScript
 hater, I like coding in TypeScript, making user interfaces and making
 user experiences.
-
+<br>
+<br>
 I like to play Celeste a lot, I even inspired this website's theme from
 Celeste.

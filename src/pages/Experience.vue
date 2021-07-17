@@ -22,23 +22,18 @@ const items = [Atlantic, HIK];
 
 <template>
    <Page class="_experience">
-      <Title :icon="ExperienceIcon">Experience</Title>
+      <Title :icon="ExperienceIcon" />
       <p>
          I generally gave myself some homeworks and tried to finish them. I had
          some little jobs in my life but I will list here the big jobs I had.
       </p>
 
       <template v-for="item in items">
-         <div role="heading" class="_header">
-            <img :src="Dot" class="_dot" /> {{ item.name }}
-         </div>
+         <Heading>{{ item.name }}</Heading>
          <p class="_detail">
-            <a
-               target="_blank"
-               class="_link"
-               :href="`https://${item.website}`"
-               v-text="'- Website'"
-            />
+            <a target="_blank" class="_link" :href="`https://${item.website}`"
+               >- Website</a
+            >
             <br />
             <span>- {{ item.info }}</span>
          </p>
@@ -50,18 +45,6 @@ const items = [Atlantic, HIK];
 <style lang="scss" scoped>
 ._experience {
    text-align: left;
-   ._dot {
-      width: 15px;
-      height: 15px;
-      vertical-align: middle;
-   }
-
-   ._header {
-      font-size: vars.$small;
-      font-weight: bold;
-      margin-top: vars.$p;
-   }
-
    ._detail {
       margin: 0;
    }
