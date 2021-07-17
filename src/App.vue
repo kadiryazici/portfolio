@@ -11,7 +11,9 @@ import KYZCLogo from '/src/static/kadiryazici.png';
 const route = useRoute();
 const routeStore = useRouteStore();
 
-const routeName = computed(() => camelToSpaces(route.name as string));
+const routeName = computed(
+   () => camelToSpaces(route.name as string) + ' - Kadir Yazıcı Portfolio'
+);
 
 useHead({
    meta: [
@@ -19,6 +21,18 @@ useHead({
          name: 'description',
          content:
             'This website is about me, you can find informations about me and technologies I use or maybe you may hire me.'
+      },
+      {
+         name: 'og:image',
+         content: KYZCLogo
+      },
+      {
+         name: 'twitter:image',
+         content: KYZCLogo
+      },
+      {
+         name: 'og:title',
+         content: routeName
       }
    ]
 });
@@ -27,7 +41,7 @@ useHead({
 <template>
    <div class="_home">
       <Head>
-         <title>{{ routeName }} - Kadir Yazıcı Portfolio</title>
+         <title>{{ routeName }}</title>
       </Head>
       <RouterView v-slot="{ Component }">
          <Notebook>

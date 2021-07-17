@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import { camelToSpaces } from '@helpers';
+import { useHead } from '@vueuse/head';
 import { computed, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { pageRoutes } from '/src/router/router';
 
 const route = useRoute();
+
 const pages = pageRoutes.map((route) => ({
    page: route.meta.page,
    name: route.name
