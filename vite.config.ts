@@ -1,10 +1,9 @@
 import { UserConfig } from 'vite';
 import path from 'path';
 import Vue from '@vitejs/plugin-vue';
-import Legacy from '@vitejs/plugin-legacy';
 import Markdown from 'vite-plugin-md';
-import Prism from 'markdown-it-prism';
 import ViteSSR from 'vite-ssr/plugin';
+import VueJSX from '@vitejs/plugin-vue-jsx';
 
 const config: UserConfig = {
    plugins: [
@@ -14,9 +13,10 @@ const config: UserConfig = {
          },
          include: [/\.vue$/, /\.md$/]
       }),
+      VueJSX(),
       // Legacy(),
       Markdown({
-         markdownItUses: [Prism]
+         markdownItUses: []
       }),
       ViteSSR()
    ],
@@ -39,8 +39,7 @@ const config: UserConfig = {
    },
    build: {
       polyfillDynamicImport: true,
-      assetsInlineLimit: 0,
-      outDir: './_app/dist'
+      assetsInlineLimit: 0
    }
 };
 

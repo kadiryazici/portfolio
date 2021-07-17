@@ -2,20 +2,15 @@
 import EducationIcon from '/src/static/icons/education.png';
 import Dot from '/src/static/icons/dot.png';
 
-interface Study {
-   name: string;
-   detail: string;
-}
-
-const items: Study[] = [
-   {
-      name: 'Izmit Technical and Industrial Vocational High School',
-      detail: 'I started to study here in 2016 and graduated in 2019'
-   },
-   {
-      name: 'University',
-      detail: `I don't aim to study a university right now, I'm aiming to improve my frontend skills.`
-   }
+const items = [
+   [
+      'Izmit Technical and Industrial Vocational High School',
+      'I started to study here in 2016 and graduated in 2019'
+   ],
+   [
+      'University',
+      `I don't aim to study a university right now, I'm aiming to improve my frontend skills.`
+   ]
 ];
 </script>
 
@@ -23,7 +18,7 @@ const items: Study[] = [
    <Page class="_education">
       <Title :icon="EducationIcon">Education</Title>
 
-      <template v-for="{ detail, name } in items">
+      <template v-for="[name, detail] in items">
          <div role="heading" class="_header">
             <img :src="Dot" class="_dot" />
             <span>{{ name }}</span>
@@ -50,6 +45,7 @@ const items: Study[] = [
 
    ._detail {
       margin: 0;
+      margin-bottom: vars.$p * 3;
    }
 }
 </style>

@@ -19,20 +19,22 @@ const routeStore = useRouteStore();
       </Head>
       <RouterView v-slot="{ Component }">
          <Notebook>
-            <transition
-               :leaveActiveClass="
-                  routeStore.lastPage < routeStore.currentPage
-                     ? 'anim-flip-out'
-                     : 'anim-opacity-out'
-               "
-               :enterActiveClass="
-                  routeStore.lastPage > routeStore.currentPage
-                     ? 'anim-flip-in'
-                     : 'anim-opacity-in'
-               "
-            >
-               <component :is="Component" />
-            </transition>
+            <Suspense>
+               <transition
+                  :leaveActiveClass="
+                     routeStore.lastPage < routeStore.currentPage
+                        ? 'anim-flip-out'
+                        : 'anim-opacity-out'
+                  "
+                  :enterActiveClass="
+                     routeStore.lastPage > routeStore.currentPage
+                        ? 'anim-flip-in'
+                        : 'anim-opacity-in'
+                  "
+               >
+                  <component :is="Component" />
+               </transition>
+            </Suspense>
          </Notebook>
       </RouterView>
    </div>

@@ -33,6 +33,7 @@
       "@types/node-fetch": "^2.5.11",
       "@vitejs/plugin-legacy": "^1.4.3",
       "@vitejs/plugin-vue": "latest",
+      "@vitejs/plugin-vue-jsx": "^1.1.6",
       "@vue/compiler-sfc": "latest",
       "autoprefixer": "^10.2.5",
       "cross-env": "^7.0.3",

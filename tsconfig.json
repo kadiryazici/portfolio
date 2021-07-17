@@ -10,6 +10,7 @@
       "moduleResolution": "Node",
       "allowSyntheticDefaultImports": true,
       "downlevelIteration": true,
+      "jsx": "preserve",
       "resolveJsonModule": true,
       "paths": {
          "@store": ["./src/store/store.ts"],

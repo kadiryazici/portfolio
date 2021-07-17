@@ -1,45 +1,58 @@
-<script lang="ts" setup>
-import KnowledgeIcon from '/src/static/icons/knowledge.png';
-</script>
+<script lang="tsx">
+import Page from '@components/Page/Page.vue';
+import Title from '@components/Title/Title.vue';
+import { defineComponent, Suspense } from 'vue';
 
-<template>
-   <Page class="_knowledge">
-      <Title :icon="KnowledgeIcon">Knowledge</Title>
-      <p>
-         <img src="/src/static/technologies/html.png" class="_logo" />
-         I type HTML and
-         <img src="/src/static/technologies/css.png" class="_logo" />CSS since
-         2014
-      </p>
-      <p>
-         <img src="/src/static/technologies/ts.png" class="_logo" />
-         I develop JavaScript applications since middle 2017 and I love
-         TypeScript.
-      </p>
-      <p>
-         <img src="/src/static/technologies/vue.png" class="_logo" />
-         I develop Vue applications since 2018 and Vue 3 applications since
-         middle 2020. I love Vue 3 more than Vue 2.
-      </p>
-      <p>
-         <img src="/src/static/technologies/git.png" class="_logo" />
-         I use Git for version control.
-      </p>
-      <p>
-         <img src="/src/static/technologies/figma.png" class="_logo" />
-         I use Figma to create sketches and designes.
-      </p>
-      <p>
-         <img src="/src/static/technologies/node.png" class="_logo" />
-         I use Node.js to create basic servers and for frontend development.
-      </p>
-      <p>
-         <img src="/src/static/technologies/scss.png" class="_logo" />
-         I use SCSS instead of CSS, it has a lot of feature those I like to use.
-         I am a beginner of it currently (05/2021).
-      </p>
-   </Page>
-</template>
+import KnowledgeIcon from '/src/static/icons/knowledge.png';
+import HTMLIcon from '/src/static/technologies/html.png';
+import CSSIcon from '/src/static/technologies/css.png';
+import TSIcon from '/src/static/technologies/ts.png';
+import VueIcon from '/src/static/technologies/vue.png';
+import GitIcon from '/src/static/technologies/git.png';
+import FigmaIcon from '/src/static/technologies/figma.png';
+import NodeIcon from '/src/static/technologies/node.png';
+import SCSSIcon from '/src/static/technologies/scss.png';
+
+const KnowledgeData = [
+   `img:${HTMLIcon} I type HTML and img:${CSSIcon} CSS since 2014.`,
+   `img:${TSIcon} I code JavaScript applications since middle 2017 and TypeScript since 2020.`,
+   `img:${VueIcon} I develop Vue applications since mid 2017 and Vue 3 applications since 2020.`,
+   `img:${GitIcon} I use Git for version controlling with Github.`,
+   `img:${FigmaIcon} I use Figma to create concepts of designs and sketches.`,
+   `img:${NodeIcon} I Use Node.js to develop front-end applications with bundlers and I have a bit knowledge about backend development.`,
+   `img:${SCSSIcon} I use SCSS to create designs in web applications.`
+];
+
+function HandledKnowledgeDetails() {
+   return KnowledgeData.map((k) => {
+      const splittedData = k.split(' ');
+      const handledStrings = splittedData.map((str, index) => {
+         if (str.match('img:'))
+            return (
+               <img
+                  src={str.replace('img:', '')}
+                  class="_logo"
+                  alt="coding technology logo"
+               />
+            );
+
+         return index > 0 ? ` ${str}` : `${str} `;
+      });
+      return <p>{handledStrings}</p>;
+   });
+}
+
+export default defineComponent({
+   setup() {
+      return () => (
+         <Page class="_knowledge">
+            <Title icon={KnowledgeIcon}>Knowledge</Title>
+            {HandledKnowledgeDetails()}
+         </Page>
+      );
+   }
+});
+</script>
 
 <style lang="scss" scoped>
 ._knowledge {
