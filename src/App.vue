@@ -5,15 +5,12 @@ import { Head, useHead } from '@vueuse/head';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouteStore } from '/src/store/routeStore';
-
 import KYZCLogo from '/src/static/kadiryazici.png';
 
 const route = useRoute();
 const routeStore = useRouteStore();
 
-const routeName = computed(
-   () => camelToSpaces(route.name as string) + ' - Kadir Yazıcı Portfolio'
-);
+const routeName = computed(() => camelToSpaces(route.name as string) + ' - Kadir Yazıcı Portfolio');
 
 useHead({
    meta: [
@@ -52,9 +49,7 @@ useHead({
                      : 'anim-opacity-out'
                "
                :enterActiveClass="
-                  routeStore.lastPage > routeStore.currentPage
-                     ? 'anim-flip-in'
-                     : 'anim-opacity-in'
+                  routeStore.lastPage > routeStore.currentPage ? 'anim-flip-in' : 'anim-opacity-in'
                "
             >
                <component :is="Component" />
