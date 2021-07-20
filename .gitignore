@@ -7,3 +7,7 @@ package-lock.json
 firebase.json
 pnpm-lock.yaml
 _app
+serverless/.vercel
+serverless/public/assets
+serverless/api/renderer
+serverless/public/*

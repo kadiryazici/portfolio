@@ -38,7 +38,8 @@ const config: UserConfig = {
    },
    build: {
       polyfillDynamicImport: true,
-      assetsInlineLimit: 0
+      assetsInlineLimit: 0,
+      outDir: '_app/dist'
    }
 };
 

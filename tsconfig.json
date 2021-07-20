@@ -3,7 +3,6 @@
       "baseUrl": ".",
       "strict": true,
       "esModuleInterop": true,
-      // "isolatedModules": true,
       "module": "ESNext",
       "types": ["cypress", "@types/jest"],
       "lib": ["ES6", "DOM"],

@@ -2,8 +2,4 @@
 
 # Online View
 
-[My Portfolio](https://kyzc.herokuapp.com)
-
-# Installation
-
-`(p)npm install` OR `yarn`
+[Visit](https://kyzc.vercel.app)
