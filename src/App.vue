@@ -6,7 +6,9 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouteStore } from '/src/store/routeStore';
 import KYZCLogo from '/src/static/kadiryazici.png';
+import { useContext } from 'vite-ssr/vue';
 
+const { url } = useContext();
 const route = useRoute();
 const routeStore = useRouteStore();
 
@@ -21,11 +23,11 @@ useHead({
       },
       {
          name: 'og:image',
-         content: KYZCLogo
+         content: `https://${host()}${KYZCLogo}`
       },
       {
          name: 'twitter:image',
-         content: KYZCLogo
+         content: `https://${host()}${KYZCLogo}`
       },
       {
          name: 'og:title',
@@ -33,6 +35,14 @@ useHead({
       }
    ]
 });
+
+function host() {
+   let _url = url.host;
+   if (typeof process !== 'undefined' && typeof process.env.VERCEL_URL !== 'undefined') {
+      _url = process.env.VERCEL_URL as string;
+   }
+   return _url;
+}
 </script>
 
 <template>

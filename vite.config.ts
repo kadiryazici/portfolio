@@ -5,6 +5,7 @@ import Markdown from 'vite-plugin-md';
 import ViteSSR from 'vite-ssr/plugin';
 import VueJSX from '@vitejs/plugin-vue-jsx';
 import WindiCSS from 'vite-plugin-windicss';
+import Legacy from '@vitejs/plugin-legacy';
 
 const config: UserConfig = {
    plugins: [
@@ -12,6 +13,7 @@ const config: UserConfig = {
       Markdown(),
       ViteSSR(),
       WindiCSS(),
+      Legacy(),
       Vue({
          script: {
             refSugar: true
@@ -39,7 +41,8 @@ const config: UserConfig = {
    build: {
       polyfillDynamicImport: true,
       assetsInlineLimit: 0,
-      outDir: '_app/dist'
+      outDir: '_app/dist',
+      target: 'es2015'
    }
 };
 
