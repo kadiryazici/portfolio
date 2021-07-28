@@ -1,6 +1,5 @@
 import { createPinia } from 'pinia';
 import { createHead } from '@vueuse/head';
-import devalue from '@nuxt/devalue';
 
 import App from './App.vue';
 import Title from '/src/components/Title/Title.vue';
@@ -16,10 +15,7 @@ import { viteSSR } from 'vite-ssr/vue';
 export default viteSSR(
    App,
    {
-      routes,
-      transformState(state) {
-         return import.meta.env.SSR ? devalue(state) : state;
-      }
+      routes
    },
    ({ app, router, initialState, isClient }) => {
       const head = createHead();

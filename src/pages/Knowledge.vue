@@ -35,7 +35,7 @@ function HandledKnowledgeDetails() {
 
          return index > 0 ? ` ${str}` : `${str} `;
       });
-      return <p class="pb-3">{handledStrings}</p>;
+      return <p>{handledStrings}</p>;
    });
 }
 

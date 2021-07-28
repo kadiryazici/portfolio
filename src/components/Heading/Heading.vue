@@ -16,7 +16,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 ._header {
-   font-size: vars.$med;
+   font-size: vars.$semiMed;
    font-weight: bold;
    margin-top: vars.$p;
    ._dot {

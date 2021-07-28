@@ -50,12 +50,7 @@ ref: previousPage = computed(() => {
 
          <span class="_seperator"></span>
 
-         <RouterLink
-            class="wrapper"
-            role="button"
-            :to="{ name: nextPage.name }"
-            v-if="nextPage"
-         >
+         <RouterLink class="wrapper" role="button" :to="{ name: nextPage.name }" v-if="nextPage">
             {{ nextPage.name }}
             <button class="button-next"></button>
          </RouterLink>

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import ExperienceIcon from '/src/static/icons/work.png';
-import Dot from '/src/static/icons/dot.png';
 
 const Atlantic = {
    name: 'Atlantic International Technology',
@@ -24,16 +23,14 @@ const items = [Atlantic, HIK];
    <Page class="_experience">
       <Title :icon="ExperienceIcon" />
       <p>
-         I generally gave myself some homeworks and tried to finish them. I had
-         some little jobs in my life but I will list here the big jobs I had.
+         I generally gave myself some homeworks and tried to finish them. I had some little jobs in
+         my life but I will list here the big jobs I had.
       </p>
 
       <template v-for="item in items">
          <Heading>{{ item.name }}</Heading>
          <p class="_detail">
-            <a target="_blank" class="_link" :href="`https://${item.website}`"
-               >- Website</a
-            >
+            <a target="_blank" class="_link" :href="`https://${item.website}`">- Website</a>
             <br />
             <span>- {{ item.info }}</span>
          </p>

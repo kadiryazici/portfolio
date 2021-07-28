@@ -10,7 +10,7 @@ import Legacy from '@vitejs/plugin-legacy';
 const config: UserConfig = {
    plugins: [
       VueJSX(),
-      Markdown(),
+      Markdown({}),
       ViteSSR(),
       WindiCSS(),
       Legacy(),

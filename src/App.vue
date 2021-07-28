@@ -167,8 +167,8 @@ img {
    display: inline !important;
 }
 
-._link,
-._link:visited {
+a,
+a:visited {
    color: vars.$blue;
    text-decoration: underline;
    &:hover {

@@ -6,16 +6,15 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 ref: titleName = computed(() => camelToSpaces(route.name as string));
 
-const props = defineProps<{
+interface Props {
    icon: string;
-}>();
+}
+const props = defineProps<Props>();
 </script>
 
 <template>
    <div class="_title">
-      <div class="_text">
-         {{ titleName }}
-      </div>
+      <div class="_text">{{ titleName }}</div>
       <img v-if="props.icon" width="50" height="50" :src="props.icon" />
    </div>
 </template>
