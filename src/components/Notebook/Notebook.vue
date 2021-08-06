@@ -3,7 +3,7 @@ import { camelToSpaces } from '@helpers';
 import { computed } from 'vue';
 import { pageRoutes } from '/src/router/router';
 
-ref: stickers = computed(() =>
+const stickers = computed(() =>
    pageRoutes.map((route) => ({
       name: route.name
    }))
@@ -69,8 +69,7 @@ ref: stickers = computed(() =>
 
       // background-color: vars.$white;
       filter: drop-shadow(vars.$dropShadow);
-      background-image: url(/src/static/notebook_left.png),
-         url(/src/static/notebook_right.png);
+      background-image: url(/src/static/notebook_left.png), url(/src/static/notebook_right.png);
       background-size: 50px, 100% 100%;
       background-position: left top, 50px 0px;
       background-repeat: repeat-y;
@@ -122,18 +121,10 @@ ref: stickers = computed(() =>
             font-size: vars.$tiny;
             text-decoration: none;
             color: vars.$dark;
-            clip-path: polygon(
-               100% 0%,
-               calc(100% - 10px) 50%,
-               100% 100%,
-               0px 100%,
-               0% 50%,
-               0px 0%
-            );
+            clip-path: polygon(100% 0%, calc(100% - 10px) 50%, 100% 100%, 0px 100%, 0% 50%, 0px 0%);
 
             position: relative;
-            transition: clip-path 0.35s,
-               transform 0.35s cubic-bezier(0.96, -1.15, 0.19, 1.97);
+            transition: clip-path 0.35s, transform 0.35s cubic-bezier(0.96, -1.15, 0.19, 1.97);
 
             &::after {
                content: '';

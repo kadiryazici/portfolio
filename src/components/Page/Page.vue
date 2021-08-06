@@ -12,7 +12,7 @@ const pages = pageRoutes.map((route) => ({
    name: route.name
 }));
 
-ref: nextPage = computed(() => {
+const nextPage = computed(() => {
    const currentPage = route.meta.page as unknown as number;
    if (currentPage < pages.length) {
       return {
@@ -23,7 +23,7 @@ ref: nextPage = computed(() => {
    }
 });
 
-ref: previousPage = computed(() => {
+const previousPage = computed(() => {
    const currentPage = route.meta.page as unknown as number;
    if (currentPage > 1) {
       return {

@@ -4,7 +4,7 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-ref: titleName = computed(() => camelToSpaces(route.name as string));
+const titleName = computed(() => camelToSpaces(route.name as string));
 
 interface Props {
    icon: string;
