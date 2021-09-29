@@ -15,7 +15,7 @@ const props = defineProps<Props>();
 <template>
    <div class="_title">
       <div class="_text">{{ titleName }}</div>
-      <img v-if="props.icon" width="50" height="50" :src="props.icon" />
+      <img v-if="props.icon" :src="props.icon" alt="title icon" width="50" height="50" />
    </div>
 </template>
 

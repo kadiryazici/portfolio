@@ -6,7 +6,9 @@
       "dev": "vite-ssr --open",
       "build": "vite-ssr build && bash scripts/vercelBuild.sh && cd serverless && vercel --prod",
       "test:e2e": "start-server-and-test dev http-get://localhost:3000 cypress",
-      "cypress": "cypress run --browser edge --no-exit"
+      "cypress": "cypress run --browser edge --no-exit",
+      "vercel:dist": "node scripts/vercelDist.js",
+      "vercel:deploy": "cd serverless && vercel --prod"
    },
    "dependencies": {
       "@vue/server-renderer": "^3.1.5",
@@ -25,6 +27,7 @@
    "devDependencies": {
       "@cypress/vite-dev-server": "^2.0.1",
       "@types/express": "^4.17.13",
+      "@types/fs-extra": "^9.0.13",
       "@types/jest": "^26.0.23",
       "@types/node": "^15.6.0",
       "@types/node-fetch": "^2.5.11",
@@ -35,6 +38,7 @@
       "autoprefixer": "^10.2.5",
       "cross-env": "^7.0.3",
       "cypress": "^7.5.0",
+      "fs-extra": "^10.0.0",
       "sass": "latest",
       "start-server-and-test": "^1.12.5",
       "vite": "^2.4.2",

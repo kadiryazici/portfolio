@@ -1,15 +1,13 @@
-import { createPinia } from 'pinia';
-import { createHead } from '@vueuse/head';
-
-import App from './App.vue';
-import Title from '/src/components/Title/Title.vue';
-import Page from '/src/components/Page/Page.vue';
-import Heading from '/src/components/Heading/Heading.vue';
 import 'virtual:windi.css';
 
+import App from './App.vue';
+import Heading from '/src/components/Heading/Heading.vue';
+import Page from '/src/components/Page/Page.vue';
+import Title from '/src/components/Title/Title.vue';
+import { createHead } from '@vueuse/head';
+import { createPinia } from 'pinia';
 import { routes } from '/src/router/router';
 import { useRouteStore } from '/src/store/routeStore';
-
 import { viteSSR } from 'vite-ssr/vue';
 
 export default viteSSR(

@@ -2,4 +2,4 @@
 
 # Online View
 
-[Visit](https://kyzc.vercel.app)
+[Visit](https://kadiryazici.wtf)

@@ -73,7 +73,7 @@ const stickers = computed(() =>
       background-size: 50px, 100% 100%;
       background-position: left top, 50px 0px;
       background-repeat: repeat-y;
-      transform: rotate(-2deg);
+      transform: rotate(-1deg);
       position: relative;
       display: flex;
       ._content {
