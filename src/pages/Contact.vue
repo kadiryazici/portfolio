@@ -18,12 +18,6 @@ const Email: Item = {
    link: 'mailto:kadir_yazici@yahoo.com',
    name: 'Mail'
 };
-const Instagram: Item = {
-   displayLink: '/https.kadiryazici',
-   img: ImgInstagram,
-   link: 'https://instagram.com/https.kadiryazici',
-   name: 'Instagram'
-};
 const Youtube: Item = {
    displayLink: '/c/vierone',
    img: ImgYoutube,
@@ -37,14 +31,14 @@ const Github: Item = {
    name: 'Github'
 };
 
-const items = [Email, Instagram, Youtube, Github] as Item[];
+const items = [Email, Youtube, Github] as Item[];
 </script>
 
 <template>
    <Page class="_contact">
       <Title :icon="ContactIcon" />
 
-      <p>You can contact and find me via those platforms.</p>
+      <p>You can contact me via these platforms.</p>
       <p v-for="item in items" :key="item.link">
          <img :src="item.img" class="_logo" />
          <span>{{ item.name }}: </span>

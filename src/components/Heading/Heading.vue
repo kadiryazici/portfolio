@@ -1,18 +1,16 @@
-<script lang="tsx">
+<script lang="ts" setup>
 import { defineComponent } from 'vue';
 import Dot from '/src/static/icons/dot.png';
-
-export default defineComponent({
-   setup(props, { slots }) {
-      return () => (
-         <div role="heading" class="_header">
-            <img src={Dot} class="_dot" />
-            <span>{slots.default?.()}</span>
-         </div>
-      );
-   }
-});
 </script>
+
+<template>
+   <div class="_header" role="heading">
+      <img :src="Dot" alt="•" class="_dot" />
+      <span>
+         <slot />
+      </span>
+   </div>
+</template>
 
 <style lang="scss" scoped>
 ._header {

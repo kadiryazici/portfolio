@@ -13,12 +13,11 @@ import LanguageIcon from '/src/static/icons/language.png';
       <Title :icon="LanguageIcon" />
       <Heading>English</Heading>
       <p>
-         I speak english at B2 level. I can talk to people and describe my willings and understand
-         theirs. I can read documentation of libraries without any issue. I can watch English code
-         teaching videos.
+         Can watch The Office without subtitles (wow! so cool), able to read documentations and can
+         speak at level B2.
       </p>
 
       <Heading>Turkish</Heading>
-      <p>Turkish is my native language.</p>
+      <p>git checkout main</p>
    </Page>
 </template>

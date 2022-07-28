@@ -6,10 +6,7 @@ const items = [
       'Izmit Technical and Industrial Vocational High School',
       'I started to study here in 2016 and graduated in 2019'
    ],
-   [
-      'University',
-      `I don't aim to study a university right now, I'm aiming to improve my frontend skills.`
-   ]
+   ['University', 'nope']
 ];
 </script>
 

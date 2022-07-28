@@ -8,29 +8,29 @@ interface Job {
    detail: string;
 }
 
-const Seo_do = {
-   name: 'Seo.do',
-   website: 'https://seo.do',
+const Wope = {
+   name: 'Wope',
+   website: 'https://wope.com',
    info: 'working since 09/2021',
-   detail: `I'm currently working at this company as frontend developer.`
+   detail: `As a front-end-developer`
 };
 
 const Atlantic: Job = {
    name: 'Atlantic International Technology',
    website: 'https://atlantic.es',
-   info: 'from 06/2019 to 09/2019 - Spain/Sevilla',
-   detail: `I was intern in this company. I made some designs for their websites and created user interfaces for clients.`
+   info: 'from 06/2019 to 09/2019',
+   detail: `I was intern in this company as a junior WordPress enjoyer.`
 };
 
 const HIK: Job = {
    name: 'House in Korea Seoul',
    website: 'https://hikseoul.com',
-   info: 'from 12/2019 to 05/2021 - Freelance',
+   info: 'from 12/2020 to 05/2021 - Freelance',
    detail:
-      'I created whole UI and UX without using any library in this website. I made what client wanted. Custom modals, custom selects. I had a really nice experience in this project.'
+      'A freelance project I worked on, it was about to search and select houses from map, it is not in the picture anymore (sad).'
 };
 
-const items = [Seo_do, Atlantic, HIK] as Job[];
+const items = [Wope, Atlantic, HIK] as Job[];
 </script>
 
 <template>

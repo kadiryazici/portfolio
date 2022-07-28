@@ -14,13 +14,9 @@ import NodeIcon from '/src/static/technologies/node.png';
 import SCSSIcon from '/src/static/technologies/scss.png';
 
 const KnowledgeData = [
-   `img:${HTMLIcon} I type HTML and img:${CSSIcon} CSS since 2014.`,
-   `img:${TSIcon} I code JavaScript applications since middle 2017 and TypeScript since 2020.`,
-   `img:${VueIcon} I develop Vue applications since mid 2017 and Vue 3 applications since 2020.`,
-   `img:${GitIcon} I use Git for version controlling with Github.`,
-   `img:${FigmaIcon} I use Figma to create concepts of designs and sketches.`,
-   `img:${NodeIcon} I Use Node.js to develop front-end applications with bundlers and I have a bit knowledge about backend development.`,
-   `img:${SCSSIcon} I use SCSS to create designs in web applications.`
+   `img:${TSIcon} JavaScript since 2017 and TypeScript since 2020.`,
+   `img:${VueIcon} Vue since 2018.`,
+   `img:${SCSSIcon} SCSS yes.`
 ];
 
 function HandledKnowledgeDetails() {

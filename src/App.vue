@@ -46,27 +46,23 @@ function host() {
 </script>
 
 <template>
-   <div class="_home">
-      <Head>
-         <title>{{ routeName }}</title>
-      </Head>
-      <RouterView v-slot="{ Component }">
-         <Notebook>
-            <transition
-               :leaveActiveClass="
-                  routeStore.lastPage < routeStore.currentPage
-                     ? 'anim-flip-out'
-                     : 'anim-opacity-out'
-               "
-               :enterActiveClass="
-                  routeStore.lastPage > routeStore.currentPage ? 'anim-flip-in' : 'anim-opacity-in'
-               "
-            >
-               <component :is="Component" />
-            </transition>
-         </Notebook>
-      </RouterView>
-   </div>
+   <Head>
+      <title>{{ routeName }}</title>
+   </Head>
+   <RouterView v-slot="{ Component }">
+      <Notebook>
+         <transition
+            :leaveActiveClass="
+               routeStore.lastPage < routeStore.currentPage ? 'anim-flip-out' : 'anim-opacity-out'
+            "
+            :enterActiveClass="
+               routeStore.lastPage > routeStore.currentPage ? 'anim-flip-in' : 'anim-opacity-in'
+            "
+         >
+            <component :is="Component" />
+         </transition>
+      </Notebook>
+   </RouterView>
 </template>
 
 <style lang="scss">
@@ -87,30 +83,19 @@ body {
    overflow: hidden;
    display: flex;
    background-color: vars.$white;
-   padding: 0 vars.$p;
    color: vars.$dark;
+   background: url('/src/static/background.jpg') repeat;
+   align-items: flex-start;
+   padding-top: vars.$p * 3;
+   justify-content: center;
+
+   @include mix.forMobile {
+      justify-content: flex-start;
+   }
 
    @include mix.forMoreMobile {
       padding: 0;
    }
-}
-
-._home {
-   @include mix.forMoreMobile {
-      margin: 0;
-   }
-
-   width: 100%;
-   display: flex;
-   flex-flow: row wrap;
-   justify-content: center;
-   align-items: flex-start;
-   align-content: flex-start;
-   min-height: 100%;
-   max-width: 1000px;
-   margin: vars.$p auto;
-   box-shadow: vars.$shadow;
-   background: url('/src/static/background.jpg') repeat;
 }
 
 p {

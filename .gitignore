@@ -5,7 +5,6 @@ package-lock.json
 .firebase
 .firebaserc
 firebase.json
-pnpm-lock.yaml
 _app
 serverless/.vercel
 serverless/public/assets

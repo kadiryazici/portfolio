@@ -10,7 +10,7 @@ import PageMarkdown from '/src/markdowns/AboutMe.md';
       <PageMarkdown />
       <div class="_image">
          <img class="_img" :src="KadirPhoto" />
-         <div class="_image_title">Kadir Photography</div>
+         <div class="_image_title">TOP SECRET! burn it after look</div>
       </div>
    </Page>
 </template>
