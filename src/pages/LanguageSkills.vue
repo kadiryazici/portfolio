@@ -13,7 +13,7 @@ import LanguageIcon from '/src/static/icons/language.png';
       <Title :icon="LanguageIcon" />
       <Heading>English</Heading>
       <p>
-         Can watch The Office without subtitles (wow! so cool), able to read documentations and can
+         Can watch The Office without subtitles, able to read documentations and can
          speak at level B2.
       </p>
 
